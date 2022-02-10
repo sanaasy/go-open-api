@@ -35,7 +35,8 @@ import (
 
 func main() {
 	godotenv.Load()
-	apiKey := "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"
+	api, err := ioutil.ReadFile("apikey.txt")
+	apiKey := string(api)
 	if apiKey == "" {
 		log.Fatalln("Missing API KEY")
 	}
